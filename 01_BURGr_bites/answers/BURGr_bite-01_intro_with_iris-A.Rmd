@@ -1,0 +1,104 @@
+---
+output:
+  md_document:
+    variant: markdown_github
+---
+
+# BURGr bite 1: Basic data manipulation with Iris
+
+Hello all BURGr lovers! Welcome to the first BURGr bites exercise :smile:. The dataset that we are working with in this exercise is the beloved iris, and our goal is to create a simple, beautiful summary of the data. 
+
+Before we dive into things, let's get an idea of what we are dealing with...
+
+```{r setup, echo=FALSE, }
+# http://stackoverflow.com/questions/24585254/working-with-knitr-using-subdirectories#24585750
+# http://stackoverflow.com/questions/32128690/knitr-rmd-to-md-and-the-yaml-header
+  library(knitr)
+  opts_knit$set(root.dir=normalizePath('../'))
+  opts_chunk$set(fig.path = "../fig/", dev='png') # corrected path and added dev
+  opts_chunk$set(out.format = "md")
+```
+
+```{r, data_snippet}
+data(iris)
+knitr::kable(head(iris))
+```
+
+**Part 1:**<a id="part1"></a> The aim is to produce a simple summary of the iris dataset by producing a new dataset from iris that contains the average (i.e. mean ) value of each of the variables (columns) according to species.
+
+Hint: I wonder how one could aggregate this?
+
+```{r, excercise_answer_1}
+# work out which column is the "Species" variable
+speciesCol = grep("Species", names(iris))
+# aggregate iris by species excluding the non-numeric "Species" variable
+mean_iris = aggregate(x = iris[, -speciesCol], by = list(iris$Species), FUN = mean, na.rm= T)
+
+# we need to rename all of the columns
+names(mean_iris)[1] = "Species"
+names(mean_iris)[-1] = paste0(names(mean_iris)[-1], ".mean")
+# display pretty table using kable function from knitr
+knitr::kable(mean_iris)
+```
+
+**Part 2:**<a id="part2"></a> The aim is similar to the aim in [part 1](#part1) but the difference is to also include information about the standard deviation (sd).
+
+Hint: Is this a mind meld or a merge op?
+
+```{r, excercise_answer_2}
+# work out which column is the "Species" variable
+speciesCol = grep("Species", names(iris))
+# aggregate iris by species excluding the non-numeric "Species" variable
+sd_iris = aggregate(x = iris[, -speciesCol], by = list(iris$Species), FUN = sd, na.rm= T)
+
+# we need to rename all of the columns
+# warning: we are cheating a bit because we know that "Species" is the first variable
+# However, most times we will not have this luxury. 
+# Question: What would you do then?
+names(sd_iris)[1] = "Species"
+names(sd_iris)[-1] = paste0(names(sd_iris)[-1], ".sd")
+
+# merge mean and sd data summaries
+iris_snapshot = merge(mean_iris, sd_iris, by = "Species")
+
+# similar strategy as above...same caveat (warning)
+# Answer: Use grep to avoid hard coding by replacing the 
+# number 1 with the results of the grep() search!
+speciesCol = grep("Species", names(iris_snapshot))
+sortedColNames = c(names(iris_snapshot)[speciesCol], sort(names(iris_snapshot)[-speciesCol]))
+
+# reorganise data by column
+iris_snapshot = iris_snapshot[, sortedColNames]
+
+# display pretty table using kable function from knitr
+knitr::kable(iris_snapshot)
+```
+
+**Part 3:**<a id="part3"></a> In [part 1](#part1) and [part 2](#part2), we were able to create pretty decent summaries of Species data in **iris** according to both the average and standard deviation. 
+
+Hmmm... something is missing? can we make it more "publication-worthy" (sic)... yes we can!
+
+Hint: I sense some **function**al pasting... :alien:
+
+```{r, excercise_answer_3}
+# just to mix things up... we will create a new data.frame object
+# using existing data
+
+# HTML character code from here: https://www.w3schools.com/charsets/ref_html_entities_4.asp
+# needed to add the ability to round down the sd
+# makePlusMinus = function(x, y) return(paste(x, "&#177;", y))
+makePlusMinus = function(x, y) return(paste(round(x, 2), "&#177;", round(y, 2)))
+
+# create a new data frame out using the "Species" column from existing data
+iris_plus = mean_iris["Species"]
+# use the custom makePlusMinus to make pretty summaries of the data
+iris_plus$Sepal.Length = makePlusMinus(mean_iris$Sepal.Length.mean, sd_iris$Sepal.Length.sd)
+iris_plus$Sepal.Width = makePlusMinus(mean_iris$Sepal.Width.mean, sd_iris$Sepal.Width.sd)
+iris_plus$Petal.Length = makePlusMinus(mean_iris$Petal.Length.mean, sd_iris$Petal.Length.sd)
+iris_plus$Petal.Width = makePlusMinus(mean_iris$Petal.Width.mean, sd_iris$Petal.Width.sd)
+
+# display pretty table using kable function from knitr
+knitr::kable(iris_plus)
+```
+
+**Part 4:** This bite sized chunk of BURGr goodness is complete, thanks for joining us! The open question is, can you think of other ways to create a simple, pretty **tabular** summary of this dataset?
