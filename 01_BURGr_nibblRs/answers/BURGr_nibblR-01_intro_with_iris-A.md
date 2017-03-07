@@ -1,4 +1,4 @@
-BURGr bite 1: Basic data manipulation with Iris
+BURGr nibblR 1: Basic data manipulation with Iris
 ===============================================
 
 Hello all BURGr lovers! Welcome to the first BURGr bites exercise :smile:. The dataset that we are working with in this exercise is the beloved iris, and our goal is to create a simple, beautiful summary of the data.
