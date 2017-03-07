@@ -24,6 +24,6 @@ The buffet essentially consists of more substantial and complex data challenges 
 
 ### Buffet Menu (Excercises)
 
-1. [Example Project](https://github.com/AU-BURGr/data_exercises/blob/master/01_BURGr_slidRs/strategy_proposal.md##example-project) with an example [quesiton set](https://github.com/AU-BURGr/data_exercises/blob/master/01_BURGr_slidRs/strategy_proposal.md#potential-questions)
+1. [Example Project](https://github.com/AU-BURGr/data_exercises/blob/master/02_BURGr_slidRs/strategy_proposal.md##example-project) with an example [quesiton set](https://github.com/AU-BURGr/data_exercises/blob/master/02_BURGr_slidRs/strategy_proposal.md#potential-questions)
 
 
