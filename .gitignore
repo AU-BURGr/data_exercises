@@ -6,3 +6,5 @@
 */questions/*.Rmd
 */questions/*.html
 README_*.html
+*.zip
+*.csv
