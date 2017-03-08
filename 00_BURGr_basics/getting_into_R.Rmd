@@ -1,0 +1,91 @@
+---
+title: "Getting into R"
+author: "Miles McBain"
+date: "March 8, 2017"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#About this Document
+This is a brief outline of steps to get yourself up and running with R. It goes from installation of R and associated tools to a simple exercise. You may skip steps you are already comfortable.
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+#Setting up R
+
+## Get R & RStudio
+These are the essential tools for using R.
+
+1. Get the R from [https://www.r-project.org/](https://www.r-project.org/). There are installers and instructions for all platforms. The only complications are for Linux users, but they are used to that ;).
+  * R comes with basic script editor, but it is rarely used.
+
+2. RStudio is a tool for authoring R programs. It has unlimited use free versions available for all platforms. Get RStudio Desktop from [https://www.rstudio.com/products/rstudio/download/](https://www.rstudio.com/products/rstudio/download/)
+
+# First Steps
+
+## Accessing CRAN
+CRAN is the Comprehensive R Archive Network. It houses over 10000(!) R packages that have been contributed by the community to perform all manner of data acquisition, wrangling, analysis, and visualisation tasks.
+
+###Installing a package
+Install your first package by running this command at the R console:
+```{r, eval=FALSE}
+install.packages("readr")
+```
+
+Information on `readr`:
+    * [https://cran.r-project.org/web/packages/readr/index.html](https://cran.r-project.org/web/packages/readr/index.html)
+    * [https://github.com/tidyverse/readr](https://github.com/tidyverse/readr)
+
+###Exercise: Finding and installing Package
+[CRAN task views](https://cran.r-project.org/web/views/) sort packages by the type of task they help you perform. Use the task view to find a package that seems like it might be useful in your work. Check out it's manual, vignettes, and then install it!
+
+When Googling for packages the keywords "CRAN" or "rstats" can help you get straight to R package hits.
+
+### Recommended package downloads
+There are many useful packages to explore. Some recommendations:
+
+* The `tidyverse` package incorporates some of the most famous R tools like `ggplot2` and `dplyr`.
+* `swirl` is a package that teaches you R inside R!
+* `janitor` provides a simple library for solving data wrangling problems. 
+
+#Exercise: Getting data into R
+Getting data into R can create difficulties for people used to menu driven environments (Excel, SAS etc). Your objective is always to find an R function that can read the format of your data. Key packages that provide functions for you are : `readr` (csv), `readxl` (excel), and `haven` (other file-types).
+
+In the repository alongside this file there is a csv file called `bank.csv` see if you can read it into an R data frame!
+
+#Getting Help
+
+## Cheatsheets
+
+* RStudio maintain a range of [cheat sheets](https://www.rstudio.com/resources/cheatsheets/) which are a excellent first port of call for when you get stuck for what to do.
+
+## Stackoverflow
+* The stackoverflow community for R is quite friendly and responds quickly. A package called `reprex` can help you arrange your code for posting in a request for help. BURGr's own Nick Tierney has written a [blog post about how to use it](http://www.njtierney.com/r/rbloggers/2017/01/11/reprex-magic/). 
+
+#Joining the Community
+
+## Twitter and #rstats
+The R community on twitter is vibrant and fun. Keep an eye on the `#rstats` hashtag.
+
+###Exercise: finding R on Twitter
+Ask your fellow BURGr members for some good useR's to follow!
+
+## Get a Github Account and a Client
+Github is a service for hosting code repositories that is popular in the R community and (and in general). With a Github account you can:
+
+* Keep track of the latest updates and happenings in the R package universe.
+* Report bugs/issues for R packages you use.
+* Store and share your own R projects with other people.
+* Make contributions to packages that helps the whole community.
+
+###Exercise: Get on Github!
+If you're not yet on Github then it's time to get amongst it. Create an account and install a Github client like [Gitkraken](https://www.gitkraken.com/). Ask a fellow BURGr member to help you clone your first repo. For example [this one](https://github.com/AU-BURGr/data_exercises)!
+
+
+    
