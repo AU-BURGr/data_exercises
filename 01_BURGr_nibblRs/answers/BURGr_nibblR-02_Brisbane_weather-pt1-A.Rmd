@@ -6,7 +6,7 @@ output:
 
 # BURGr nibblR 2: Brisbane basic weather - data import
 
-Hello all BURGr lovers! Welcome to the first BURGr bites exercise :smile:. The dataset that we are working with in this exercise is the beloved iris, and our goal is to create a simple, beautiful summary of the data. 
+Hello all BURGr lovers! Welcome to the second BURGr bites exercise :smile:. The dataset that we are working with in this exercise is Brisbane weather data from BOM, and our goal is to create a summary of temperature and rainfall. 
 
 Before we dive into things, let's get an idea of what we are dealing with...
 
