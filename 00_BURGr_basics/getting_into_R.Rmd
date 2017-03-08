@@ -23,7 +23,7 @@ This is an R Markdown document. Markdown is a simple formatting syntax for autho
 These are the essential tools for using R.
 
 1. Get the R from [https://www.r-project.org/](https://www.r-project.org/). There are installers and instructions for all platforms. The only complications are for Linux users, but they are used to that ;).
-  * R comes with basic script editor, but it is rarely used.
+    * R comes with basic script editor, but it is rarely used.
 
 2. RStudio is a tool for authoring R programs. It has unlimited use free versions available for all platforms. Get RStudio Desktop from [https://www.rstudio.com/products/rstudio/download/](https://www.rstudio.com/products/rstudio/download/)
 
@@ -39,6 +39,7 @@ install.packages("readr")
 ```
 
 Information on `readr`:
+
     * [https://cran.r-project.org/web/packages/readr/index.html](https://cran.r-project.org/web/packages/readr/index.html)
     * [https://github.com/tidyverse/readr](https://github.com/tidyverse/readr)
 
